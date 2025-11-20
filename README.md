@@ -11,39 +11,57 @@ Repositório com o projeto desenvolvido para a Atividade Acadêmica **Processame
 
 ## 📂 Estrutura do Repositório
 
-| Projeto             | Engine / Linguagem | Descrição breve |
-| ------------------- | ------------------ | ---------------- |
-| `Trabalho Grau A`   | C++ / OpenGL       | Desenvolvimento do jogo **“Jogo do Gênio”**, utilizando OpenGL, GLFW, GLAD e shaders personalizados. O projeto aplica conceitos de renderização 2D, texturas e detecção de colisões em tempo real. |
+| Projeto                  | Linguagem / Biblioteca | Descrição breve |
+| ------------------------ | -------------------- | ---------------- |
+| `Trabalho Grau B`        | Python / OpenCV + Tkinter | Protótipo de **editor de imagens e vídeo**, inspirado nos “stories” do Instagram. Permite capturar vídeo da webcam, aplicar filtros em tempo real, utilizar stickers e salvar imagens processadas. |
 
 ---
 
-## 🧩 Descrição do Projeto — *Jogo do Gênio*
+## 🧩 Descrição do Projeto — *Editor de Imagem e Vídeo*
 
-O **Jogo do Gênio** é um jogo 2D desenvolvido em **C++** com **OpenGL**, onde o jogador controla um gênio posicionado na parte inferior da tela e deve **coletar lâmpadas que caem do topo**.
+O **Editor de Imagem e Vídeo** é uma aplicação desktop desenvolvida em **Python** com **OpenCV** e **Tkinter**, que permite ao usuário:
 
-Cada lâmpada coletada **incrementa a pontuação** do jogador.  
-Quando o gênio atinge **20 lâmpadas coletadas**, o jogo reconhece a vitória e exibe a mensagem correspondente.
+- Capturar **vídeo em tempo real** da webcam.  
+- Carregar imagens estáticas do disco (modo foto).  
+- Aplicar **10 filtros diferentes**, incluindo:
+  - Blur (Gaussian, Median)  
+  - Sharpen  
+  - Laplaciano  
+  - Canny  
+  - Isolamento de canais (R, G, B)  
+  - Grayscale  
+- Aplicar **stickers** com transparência sobre imagens ou vídeo.  
+- Realizar **operações matemáticas** entre imagens (adição, subtração, blending).  
+- **Salvar** o resultado da imagem ou frame do vídeo.  
+- **Resetar** para a imagem original.  
+- (Opcional) Detecção de rosto usando Haar Cascade para posicionamento automático de stickers.  
 
-O sistema utiliza:  
-- **OpenGL** para renderização das texturas e sprites.  
-- **GLFW** para controle da janela e entrada do teclado.  
-- **GLAD** para o carregamento de funções modernas do OpenGL.  
-- **stb_image** para carregamento das imagens (texturas dos sprites e fundo).  
-- **Shaders (GLSL)** para controle da renderização e efeitos gráficos.
+A interface gráfica é implementada com **Tkinter**, apresentando o vídeo em tempo real e **botões para alternar filtros**, tirar foto e resetar a imagem.
 
-A estrutura do projeto é dividida em módulos:  
-- `assets/` — imagens e texturas (background, jogador, lâmpadas).  
-- `include/` e `Common/` — cabeçalhos e dependências externas.  
-- `src/` — código-fonte principal (controle do jogo, renderização e lógica).  
-- `shaders/` — arquivos de vertex e fragment shader.  
+---
+
+## 🛠 Tecnologias Utilizadas
+
+- **Python 3.11+**  
+- **OpenCV** (`opencv-python` / `opencv-contrib-python`) — processamento de imagens e vídeo.  
+- **Tkinter** — interface gráfica e botões.  
+- **Pillow (PIL)** — conversão de imagens para exibição em Tkinter.  
+
+---
+
+## 📂 Estrutura do Projeto
+
+- `main.py` — código principal, responsável pelo loop de vídeo, aplicação de filtros, interface Tkinter e manipulação de imagens.  
+- `haarcascade_frontalface_default.xml` — classificador Haar Cascade pré-treinado para detecção de faces (opcional para stickers).  
+- `assets/` — pasta com imagens de stickers e outros recursos gráficos.  
 
 ---
 
 ## 💡 Observações
 
-- Trabalho desenvolvido para a disciplina **Processamento Gráfico: Fundamentos**, ministrada em 2025/2.  
-- Projeto implementado em **C++17** com o sistema de build **CMake**.  
-- O jogo foi testado e executado em ambiente **Windows** utilizando **Visual Studio Code** e **MinGW**.
+- Projeto desenvolvido para a disciplina **Processamento Gráfico: Fundamentos**, 2025/2.  
+- O sistema foi testado e executado em **Windows** e **Linux** com Python 3.  
+- A interface busca equilibrar **simplicidade** com funcionalidade, priorizando o **processamento de imagens** como foco principal.  
+- Este repositório deve ser entregue via **link do GitHub** conforme as instruções da disciplina, com README, .gitignore e código organizado.  
 
-> Este repositório deverá permanecer **público** até o final da disciplina para fins de avaliação.  
-> Organização e clareza são essenciais, podendo este projeto ser expandido como parte de um **portfólio pessoal**.
+> O projeto é modular e pode ser expandido com funcionalidades extras, como stickers animados, múltiplos filtros em sequência ou integração com detecção de rosto para efeitos automáticos.
